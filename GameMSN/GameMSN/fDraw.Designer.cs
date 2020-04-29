@@ -155,11 +155,11 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("新細明體", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(956, 14);
+            this.label4.Location = new System.Drawing.Point(954, 9);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(30, 13);
+            this.label4.Size = new System.Drawing.Size(41, 19);
             this.label4.TabIndex = 5;
             this.label4.Text = "User";
             // 
@@ -250,7 +250,6 @@
             this.Draw_panel1.Name = "Draw_panel1";
             this.Draw_panel1.Size = new System.Drawing.Size(1107, 380);
             this.Draw_panel1.TabIndex = 1;
-            this.Draw_panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.Draw_panel1_Paint);
             this.Draw_panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Draw_panel1_MouseDown);
             this.Draw_panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Draw_panel1_MouseMove);
             this.Draw_panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Draw_panel1_MouseUp);
@@ -440,7 +439,7 @@
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(6, 24);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 136);
+            this.listBox1.Size = new System.Drawing.Size(120, 124);
             this.listBox1.TabIndex = 0;
             // 
             // groupBox3
@@ -723,7 +722,7 @@
             this.Cls_btu.BackColor = System.Drawing.Color.Transparent;
             this.Cls_btu.Image = global::GameMSN.Properties.Resources.icons8_erase_32;
             this.Cls_btu.ImageActive = null;
-            this.Cls_btu.Location = new System.Drawing.Point(26, 63);
+            this.Cls_btu.Location = new System.Drawing.Point(26, 66);
             this.Cls_btu.Name = "Cls_btu";
             this.Cls_btu.Size = new System.Drawing.Size(41, 34);
             this.Cls_btu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

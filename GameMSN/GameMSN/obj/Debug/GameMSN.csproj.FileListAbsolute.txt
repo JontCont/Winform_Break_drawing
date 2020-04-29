@@ -50,3 +50,5 @@ C:\Users\JontCont\Desktop\GameMSN\GameMSN\bin\Debug\Microsoft.VisualBasic.PowerP
 C:\Users\JontCont\Desktop\GameMSN\GameMSN\bin\Debug\zh-Hant\Microsoft.VisualBasic.PowerPacks.resources.dll
 C:\Users\JontCont\Desktop\GameMSN\GameMSN\bin\Debug\zh-Hant\Microsoft.VisualBasic.PowerPacks.Design.resources.dll
 D:\Users\LeomonRD\Desktop\GameMSN\GameMSN\obj\Debug\GameMSN.fLogin.resources
+C:\Users\JontCont\Desktop\GameMSN\GameMSN\obj\Debug\GameMSN.User1D.resources
+D:\Users\LeomonRD\Desktop\GameMSN\GameMSN\obj\Debug\GameMSN.User1D.resources

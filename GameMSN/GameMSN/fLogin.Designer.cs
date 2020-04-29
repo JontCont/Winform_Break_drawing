@@ -260,7 +260,7 @@
             this.Login_btu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.Login_btu.DialogResult = System.Windows.Forms.DialogResult.None;
             this.Login_btu.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.Login_btu.DisabledFillColor = System.Drawing.Color.Gray;
+            this.Login_btu.DisabledFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
             this.Login_btu.DisabledForecolor = System.Drawing.Color.White;
             this.Login_btu.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
             this.Login_btu.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
