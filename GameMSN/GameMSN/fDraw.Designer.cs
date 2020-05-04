@@ -32,14 +32,14 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fDraw));
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties1 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties2 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
-            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties5 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties6 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties7 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties8 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties9 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties10 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties3 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
+            Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.bunifuFormDock1 = new Bunifu.UI.WinForms.BunifuFormDock();
             this.titlepanel1 = new System.Windows.Forms.Panel();
@@ -50,10 +50,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.backpanel1 = new Bunifu.Framework.UI.BunifuGradientPanel();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.Draw_panel1 = new System.Windows.Forms.Panel();
+            this.Draw_panel1 = new MetroFramework.Controls.MetroPanel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.Start_btu = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
-            this.Oth_btu = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.Gm_btu = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
@@ -77,6 +76,7 @@
             this.Paletter_btu = new Bunifu.Framework.UI.BunifuImageButton();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.Skip_btu = new Bunifu.UI.WinForms.BunifuButton.BunifuButton();
             this.titlepanel1.SuspendLayout();
             this.backpanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -102,7 +102,7 @@
             // 
             this.bunifuFormDock1.AllowFormDragging = true;
             this.bunifuFormDock1.AllowFormDropShadow = true;
-            this.bunifuFormDock1.AllowFormResizing = true;
+            this.bunifuFormDock1.AllowFormResizing = false;
             this.bunifuFormDock1.AllowHidingBottomRegion = true;
             this.bunifuFormDock1.AllowOpacityChangesWhileDragging = false;
             this.bunifuFormDock1.BorderOptions.BottomBorder.BorderColor = System.Drawing.Color.Silver;
@@ -130,11 +130,11 @@
             this.bunifuFormDock1.DockingOptions.DockTopRight = true;
             this.bunifuFormDock1.FormDraggingOpacity = 0.9D;
             this.bunifuFormDock1.ParentForm = this;
-            this.bunifuFormDock1.ShowCursorChanges = true;
-            this.bunifuFormDock1.ShowDockingIndicators = true;
+            this.bunifuFormDock1.ShowCursorChanges = false;
+            this.bunifuFormDock1.ShowDockingIndicators = false;
             this.bunifuFormDock1.TitleBarOptions.AllowFormDragging = true;
             this.bunifuFormDock1.TitleBarOptions.BunifuFormDock = this.bunifuFormDock1;
-            this.bunifuFormDock1.TitleBarOptions.DoubleClickToExpandWindow = true;
+            this.bunifuFormDock1.TitleBarOptions.DoubleClickToExpandWindow = false;
             this.bunifuFormDock1.TitleBarOptions.TitleBarControl = this.titlepanel1;
             this.bunifuFormDock1.TitleBarOptions.UseBackColorOnDockingIndicators = false;
             // 
@@ -149,7 +149,7 @@
             this.titlepanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.titlepanel1.Location = new System.Drawing.Point(0, 0);
             this.titlepanel1.Name = "titlepanel1";
-            this.titlepanel1.Size = new System.Drawing.Size(1107, 39);
+            this.titlepanel1.Size = new System.Drawing.Size(1088, 39);
             this.titlepanel1.TabIndex = 0;
             // 
             // label4
@@ -157,7 +157,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft JhengHei UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(954, 9);
+            this.label4.Location = new System.Drawing.Point(937, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(41, 19);
             this.label4.TabIndex = 5;
@@ -180,7 +180,7 @@
             this.Exit_btu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Exit_btu.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.Exit_btu.ForeColor = System.Drawing.Color.White;
-            this.Exit_btu.Location = new System.Drawing.Point(1031, 4);
+            this.Exit_btu.Location = new System.Drawing.Point(1014, 4);
             this.Exit_btu.Name = "Exit_btu";
             this.Exit_btu.Size = new System.Drawing.Size(65, 30);
             this.Exit_btu.TabIndex = 2;
@@ -229,7 +229,7 @@
             this.backpanel1.Location = new System.Drawing.Point(0, 0);
             this.backpanel1.Name = "backpanel1";
             this.backpanel1.Quality = 10;
-            this.backpanel1.Size = new System.Drawing.Size(1109, 608);
+            this.backpanel1.Size = new System.Drawing.Size(1090, 600);
             this.backpanel1.TabIndex = 0;
             // 
             // panel1
@@ -240,16 +240,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 39);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1107, 567);
+            this.panel1.Size = new System.Drawing.Size(1088, 559);
             this.panel1.TabIndex = 1;
             // 
             // Draw_panel1
             // 
             this.Draw_panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Draw_panel1.HorizontalScrollbarBarColor = true;
+            this.Draw_panel1.HorizontalScrollbarHighlightOnWheel = false;
+            this.Draw_panel1.HorizontalScrollbarSize = 10;
             this.Draw_panel1.Location = new System.Drawing.Point(0, 0);
             this.Draw_panel1.Name = "Draw_panel1";
-            this.Draw_panel1.Size = new System.Drawing.Size(1107, 380);
+            this.Draw_panel1.Size = new System.Drawing.Size(1088, 372);
             this.Draw_panel1.TabIndex = 1;
+            this.Draw_panel1.VerticalScrollbarBarColor = true;
+            this.Draw_panel1.VerticalScrollbarHighlightOnWheel = false;
+            this.Draw_panel1.VerticalScrollbarSize = 10;
             this.Draw_panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Draw_panel1_MouseDown);
             this.Draw_panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Draw_panel1_MouseMove);
             this.Draw_panel1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.Draw_panel1_MouseUp);
@@ -258,7 +264,7 @@
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.MenuBar;
             this.panel2.Controls.Add(this.Start_btu);
-            this.panel2.Controls.Add(this.Oth_btu);
+            this.panel2.Controls.Add(this.Skip_btu);
             this.panel2.Controls.Add(this.Gm_btu);
             this.panel2.Controls.Add(this.groupBox5);
             this.panel2.Controls.Add(this.groupBox3);
@@ -266,10 +272,11 @@
             this.panel2.Controls.Add(this.groupBox4);
             this.panel2.Controls.Add(this.groupBox1);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel2.Location = new System.Drawing.Point(0, 380);
+            this.panel2.Location = new System.Drawing.Point(0, 372);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1107, 187);
+            this.panel2.Size = new System.Drawing.Size(1088, 187);
             this.panel2.TabIndex = 0;
+            this.panel2.Click += new System.EventHandler(this.Panel2_Click);
             // 
             // Start_btu
             // 
@@ -297,7 +304,7 @@
             this.Start_btu.IdleIconLeftImage = null;
             this.Start_btu.IdleIconRightImage = null;
             this.Start_btu.IndicateFocus = true;
-            this.Start_btu.Location = new System.Drawing.Point(941, 93);
+            this.Start_btu.Location = new System.Drawing.Point(941, 90);
             this.Start_btu.Name = "Start_btu";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties1.BorderRadius = 1;
@@ -320,56 +327,6 @@
             this.Start_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Start_btu.TextMarginLeft = 0;
             this.Start_btu.Click += new System.EventHandler(this.Start_btu_Click);
-            // 
-            // Oth_btu
-            // 
-            this.Oth_btu.AnimationSpeed = 220;
-            this.Oth_btu.BackColor = System.Drawing.Color.Transparent;
-            this.Oth_btu.BackColor1 = System.Drawing.Color.DodgerBlue;
-            this.Oth_btu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Oth_btu.BackgroundImage")));
-            this.Oth_btu.ButtonText = "Guess";
-            this.Oth_btu.ButtonTextMarginLeft = 0;
-            this.Oth_btu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.Oth_btu.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.Oth_btu.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
-            this.Oth_btu.DisabledFillColor = System.Drawing.Color.Gray;
-            this.Oth_btu.DisabledForecolor = System.Drawing.Color.White;
-            this.Oth_btu.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
-            this.Oth_btu.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
-            this.Oth_btu.ForeColor = System.Drawing.Color.White;
-            this.Oth_btu.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
-            this.Oth_btu.IconPadding = 10;
-            this.Oth_btu.IconRightCursor = System.Windows.Forms.Cursors.Hand;
-            this.Oth_btu.IdleBorderColor = System.Drawing.Color.DodgerBlue;
-            this.Oth_btu.IdleBorderRadius = 1;
-            this.Oth_btu.IdleBorderThickness = 1;
-            this.Oth_btu.IdleFillColor = System.Drawing.Color.DodgerBlue;
-            this.Oth_btu.IdleIconLeftImage = null;
-            this.Oth_btu.IdleIconRightImage = null;
-            this.Oth_btu.IndicateFocus = true;
-            this.Oth_btu.Location = new System.Drawing.Point(958, 138);
-            this.Oth_btu.Name = "Oth_btu";
-            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.BorderRadius = 1;
-            stateProperties3.BorderThickness = 1;
-            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
-            stateProperties3.ForeColor = System.Drawing.Color.White;
-            stateProperties3.IconLeftImage = null;
-            stateProperties3.IconRightImage = null;
-            this.Oth_btu.onHoverState = stateProperties3;
-            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.BorderRadius = 1;
-            stateProperties4.BorderThickness = 1;
-            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
-            stateProperties4.ForeColor = System.Drawing.Color.White;
-            stateProperties4.IconLeftImage = null;
-            stateProperties4.IconRightImage = null;
-            this.Oth_btu.OnPressedState = stateProperties4;
-            this.Oth_btu.Size = new System.Drawing.Size(76, 27);
-            this.Oth_btu.TabIndex = 5;
-            this.Oth_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.Oth_btu.TextMarginLeft = 0;
-            this.Oth_btu.Click += new System.EventHandler(this.Oth_btu_Click);
             // 
             // Gm_btu
             // 
@@ -397,7 +354,7 @@
             this.Gm_btu.IdleIconLeftImage = null;
             this.Gm_btu.IdleIconRightImage = null;
             this.Gm_btu.IndicateFocus = true;
-            this.Gm_btu.Location = new System.Drawing.Point(958, 97);
+            this.Gm_btu.Location = new System.Drawing.Point(966, 90);
             this.Gm_btu.Name = "Gm_btu";
             stateProperties5.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties5.BorderRadius = 1;
@@ -439,7 +396,7 @@
             this.listBox1.ItemHeight = 12;
             this.listBox1.Location = new System.Drawing.Point(6, 24);
             this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 124);
+            this.listBox1.Size = new System.Drawing.Size(120, 136);
             this.listBox1.TabIndex = 0;
             // 
             // groupBox3
@@ -500,7 +457,7 @@
             stateProperties8.IconLeftImage = null;
             stateProperties8.IconRightImage = null;
             this.chat_btu.OnPressedState = stateProperties8;
-            this.chat_btu.Size = new System.Drawing.Size(76, 27);
+            this.chat_btu.Size = new System.Drawing.Size(76, 31);
             this.chat_btu.TabIndex = 1;
             this.chat_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chat_btu.TextMarginLeft = 0;
@@ -523,7 +480,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(238, 108);
+            this.textBox1.Size = new System.Drawing.Size(238, 102);
             this.textBox1.TabIndex = 0;
             // 
             // groupBox2
@@ -584,7 +541,7 @@
             stateProperties10.IconLeftImage = null;
             stateProperties10.IconRightImage = null;
             this.Guess_btu.OnPressedState = stateProperties10;
-            this.Guess_btu.Size = new System.Drawing.Size(76, 27);
+            this.Guess_btu.Size = new System.Drawing.Size(76, 31);
             this.Guess_btu.TabIndex = 3;
             this.Guess_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Guess_btu.TextMarginLeft = 0;
@@ -607,7 +564,7 @@
             this.textBox2.Name = "textBox2";
             this.textBox2.ReadOnly = true;
             this.textBox2.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox2.Size = new System.Drawing.Size(238, 108);
+            this.textBox2.Size = new System.Drawing.Size(238, 102);
             this.textBox2.TabIndex = 1;
             // 
             // groupBox4
@@ -710,7 +667,7 @@
             "7",
             "10",
             "12"});
-            this.comboBox1.Location = new System.Drawing.Point(69, 112);
+            this.comboBox1.Location = new System.Drawing.Point(75, 112);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(41, 24);
             this.comboBox1.TabIndex = 4;
@@ -722,7 +679,7 @@
             this.Cls_btu.BackColor = System.Drawing.Color.Transparent;
             this.Cls_btu.Image = global::GameMSN.Properties.Resources.icons8_erase_32;
             this.Cls_btu.ImageActive = null;
-            this.Cls_btu.Location = new System.Drawing.Point(26, 66);
+            this.Cls_btu.Location = new System.Drawing.Point(26, 63);
             this.Cls_btu.Name = "Cls_btu";
             this.Cls_btu.Size = new System.Drawing.Size(41, 34);
             this.Cls_btu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -764,11 +721,62 @@
             this.progressBar1.TabIndex = 0;
             this.progressBar1.Value = 100;
             // 
+            // Skip_btu
+            // 
+            this.Skip_btu.AnimationSpeed = 220;
+            this.Skip_btu.BackColor = System.Drawing.Color.Transparent;
+            this.Skip_btu.BackColor1 = System.Drawing.Color.DodgerBlue;
+            this.Skip_btu.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("Skip_btu.BackgroundImage")));
+            this.Skip_btu.ButtonText = "Skip";
+            this.Skip_btu.ButtonTextMarginLeft = 0;
+            this.Skip_btu.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Skip_btu.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Skip_btu.DisabledBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(161)))), ((int)(((byte)(161)))), ((int)(((byte)(161)))));
+            this.Skip_btu.DisabledFillColor = System.Drawing.Color.Gray;
+            this.Skip_btu.DisabledForecolor = System.Drawing.Color.White;
+            this.Skip_btu.FocusState = Bunifu.UI.WinForms.BunifuButton.BunifuButton.ButtonStates.Pressed;
+            this.Skip_btu.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F);
+            this.Skip_btu.ForeColor = System.Drawing.Color.White;
+            this.Skip_btu.IconLeftCursor = System.Windows.Forms.Cursors.Hand;
+            this.Skip_btu.IconPadding = 10;
+            this.Skip_btu.IconRightCursor = System.Windows.Forms.Cursors.Hand;
+            this.Skip_btu.IdleBorderColor = System.Drawing.Color.DodgerBlue;
+            this.Skip_btu.IdleBorderRadius = 1;
+            this.Skip_btu.IdleBorderThickness = 1;
+            this.Skip_btu.IdleFillColor = System.Drawing.Color.DodgerBlue;
+            this.Skip_btu.IdleIconLeftImage = null;
+            this.Skip_btu.IdleIconRightImage = null;
+            this.Skip_btu.IndicateFocus = true;
+            this.Skip_btu.Location = new System.Drawing.Point(966, 123);
+            this.Skip_btu.Name = "Skip_btu";
+            stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.BorderRadius = 1;
+            stateProperties3.BorderThickness = 1;
+            stateProperties3.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
+            stateProperties3.ForeColor = System.Drawing.Color.White;
+            stateProperties3.IconLeftImage = null;
+            stateProperties3.IconRightImage = null;
+            this.Skip_btu.onHoverState = stateProperties3;
+            stateProperties4.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.BorderRadius = 1;
+            stateProperties4.BorderThickness = 1;
+            stateProperties4.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(96)))), ((int)(((byte)(144)))));
+            stateProperties4.ForeColor = System.Drawing.Color.White;
+            stateProperties4.IconLeftImage = null;
+            stateProperties4.IconRightImage = null;
+            this.Skip_btu.OnPressedState = stateProperties4;
+            this.Skip_btu.Size = new System.Drawing.Size(76, 27);
+            this.Skip_btu.TabIndex = 5;
+            this.Skip_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Skip_btu.TextMarginLeft = 0;
+            this.Skip_btu.Click += new System.EventHandler(this.Skip_btu_Click);
+            // 
             // fDraw
             // 
-            this.ClientSize = new System.Drawing.Size(1109, 608);
+            this.ClientSize = new System.Drawing.Size(1090, 600);
             this.Controls.Add(this.backpanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fDraw";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Load += new System.EventHandler(this.FDraw_Load);
@@ -821,7 +829,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton chat_btu;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton Guess_btu;
-        private Bunifu.UI.WinForms.BunifuButton.BunifuButton Oth_btu;
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton Gm_btu;
         private Bunifu.Framework.UI.BunifuImageButton Paletter_btu;
         private Bunifu.Framework.UI.BunifuImageButton Cls_btu;
@@ -833,7 +840,8 @@
         private Bunifu.UI.WinForms.BunifuButton.BunifuButton Start_btu;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Panel Draw_panel1;
+        private MetroFramework.Controls.MetroPanel Draw_panel1;
+        private Bunifu.UI.WinForms.BunifuButton.BunifuButton Skip_btu;
     }
 }
 

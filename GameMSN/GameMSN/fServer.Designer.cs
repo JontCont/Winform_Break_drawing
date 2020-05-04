@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fServer));
             this.TextBox1 = new System.Windows.Forms.TextBox();
             this.Listbox1 = new System.Windows.Forms.ListBox();
             this.Label2 = new System.Windows.Forms.Label();
@@ -41,52 +42,58 @@
             // 
             // TextBox1
             // 
-            this.TextBox1.Location = new System.Drawing.Point(103, 93);
+            this.TextBox1.Location = new System.Drawing.Point(137, 116);
+            this.TextBox1.Margin = new System.Windows.Forms.Padding(4);
             this.TextBox1.Name = "TextBox1";
-            this.TextBox1.Size = new System.Drawing.Size(122, 22);
+            this.TextBox1.Size = new System.Drawing.Size(161, 25);
             this.TextBox1.TabIndex = 67;
             this.TextBox1.Text = "127.0.0.1";
             // 
             // Listbox1
             // 
             this.Listbox1.FormattingEnabled = true;
-            this.Listbox1.ItemHeight = 12;
-            this.Listbox1.Location = new System.Drawing.Point(6, 21);
+            this.Listbox1.ItemHeight = 15;
+            this.Listbox1.Location = new System.Drawing.Point(8, 26);
+            this.Listbox1.Margin = new System.Windows.Forms.Padding(4);
             this.Listbox1.Name = "Listbox1";
-            this.Listbox1.Size = new System.Drawing.Size(136, 124);
+            this.Listbox1.Size = new System.Drawing.Size(180, 154);
             this.Listbox1.TabIndex = 66;
             // 
             // Label2
             // 
             this.Label2.AutoSize = true;
-            this.Label2.Location = new System.Drawing.Point(38, 124);
+            this.Label2.Location = new System.Drawing.Point(51, 155);
+            this.Label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(57, 12);
+            this.Label2.Size = new System.Drawing.Size(72, 15);
             this.Label2.TabIndex = 64;
             this.Label2.Text = "Server Port";
             // 
             // Label1
             // 
             this.Label1.AutoSize = true;
-            this.Label1.Location = new System.Drawing.Point(47, 96);
+            this.Label1.Location = new System.Drawing.Point(63, 120);
+            this.Label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.Label1.Name = "Label1";
-            this.Label1.Size = new System.Drawing.Size(48, 12);
+            this.Label1.Size = new System.Drawing.Size(61, 15);
             this.Label1.TabIndex = 63;
             this.Label1.Text = "Server IP";
             // 
             // TextBox2
             // 
-            this.TextBox2.Location = new System.Drawing.Point(103, 121);
+            this.TextBox2.Location = new System.Drawing.Point(137, 151);
+            this.TextBox2.Margin = new System.Windows.Forms.Padding(4);
             this.TextBox2.Name = "TextBox2";
-            this.TextBox2.Size = new System.Drawing.Size(122, 22);
+            this.TextBox2.Size = new System.Drawing.Size(161, 25);
             this.TextBox2.TabIndex = 62;
             this.TextBox2.Text = "2013";
             // 
             // start_btu
             // 
-            this.start_btu.Location = new System.Drawing.Point(12, 31);
+            this.start_btu.Location = new System.Drawing.Point(16, 39);
+            this.start_btu.Margin = new System.Windows.Forms.Padding(4);
             this.start_btu.Name = "start_btu";
-            this.start_btu.Size = new System.Drawing.Size(106, 34);
+            this.start_btu.Size = new System.Drawing.Size(141, 42);
             this.start_btu.TabIndex = 61;
             this.start_btu.Text = "啟動";
             this.start_btu.UseVisualStyleBackColor = true;
@@ -94,9 +101,10 @@
             // 
             // cls_btu
             // 
-            this.cls_btu.Location = new System.Drawing.Point(124, 31);
+            this.cls_btu.Location = new System.Drawing.Point(165, 39);
+            this.cls_btu.Margin = new System.Windows.Forms.Padding(4);
             this.cls_btu.Name = "cls_btu";
-            this.cls_btu.Size = new System.Drawing.Size(106, 34);
+            this.cls_btu.Size = new System.Drawing.Size(141, 42);
             this.cls_btu.TabIndex = 68;
             this.cls_btu.Text = "關閉";
             this.cls_btu.UseVisualStyleBackColor = true;
@@ -105,18 +113,20 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.Listbox1);
-            this.groupBox1.Location = new System.Drawing.Point(249, 10);
+            this.groupBox1.Location = new System.Drawing.Point(332, 12);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(148, 159);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4);
+            this.groupBox1.Size = new System.Drawing.Size(197, 199);
             this.groupBox1.TabIndex = 69;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "線上使用者";
             // 
             // fServer
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(425, 184);
+            this.ClientSize = new System.Drawing.Size(567, 230);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.cls_btu);
             this.Controls.Add(this.TextBox1);
@@ -124,6 +134,9 @@
             this.Controls.Add(this.Label1);
             this.Controls.Add(this.TextBox2);
             this.Controls.Add(this.start_btu);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "fServer";
             this.Text = "TCP Server";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FServer_FormClosing);

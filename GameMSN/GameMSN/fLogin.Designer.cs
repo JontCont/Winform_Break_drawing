@@ -48,6 +48,11 @@
             this.iptxt = new System.Windows.Forms.TextBox();
             this.porttxt = new System.Windows.Forms.TextBox();
             this.playtxt = new System.Windows.Forms.TextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.label6 = new System.Windows.Forms.Label();
             this.pLogo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -87,7 +92,7 @@
             this.bunifuFormDock1.ShowDockingIndicators = false;
             this.bunifuFormDock1.TitleBarOptions.AllowFormDragging = true;
             this.bunifuFormDock1.TitleBarOptions.BunifuFormDock = this.bunifuFormDock1;
-            this.bunifuFormDock1.TitleBarOptions.DoubleClickToExpandWindow = true;
+            this.bunifuFormDock1.TitleBarOptions.DoubleClickToExpandWindow = false;
             this.bunifuFormDock1.TitleBarOptions.TitleBarControl = this.pLogo;
             this.bunifuFormDock1.TitleBarOptions.UseBackColorOnDockingIndicators = false;
             // 
@@ -95,6 +100,7 @@
             // 
             this.pLogo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pLogo.BackgroundImage")));
             this.pLogo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.pLogo.Controls.Add(this.label6);
             this.pLogo.Controls.Add(this.button1);
             this.pLogo.Controls.Add(this.label5);
             this.pLogo.Dock = System.Windows.Forms.DockStyle.Left;
@@ -103,23 +109,25 @@
             this.pLogo.GradientTopLeft = System.Drawing.Color.DodgerBlue;
             this.pLogo.GradientTopRight = System.Drawing.Color.DodgerBlue;
             this.pLogo.Location = new System.Drawing.Point(0, 0);
+            this.pLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pLogo.Name = "pLogo";
             this.pLogo.Quality = 10;
-            this.pLogo.Size = new System.Drawing.Size(314, 423);
+            this.pLogo.Size = new System.Drawing.Size(419, 507);
             this.pLogo.TabIndex = 11;
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.DodgerBlue;
             this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.CausesValidation = false;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.Font = new System.Drawing.Font("新細明體", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
             this.button1.Image = global::GameMSN.Properties.Resources.icons8_design_64;
-            this.button1.Location = new System.Drawing.Point(92, 133);
-            this.button1.Margin = new System.Windows.Forms.Padding(2);
+            this.button1.Location = new System.Drawing.Point(135, 128);
+            this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(108, 101);
+            this.button1.Size = new System.Drawing.Size(144, 126);
             this.button1.TabIndex = 13;
             this.button1.UseVisualStyleBackColor = false;
             // 
@@ -129,19 +137,21 @@
             this.label5.BackColor = System.Drawing.Color.Transparent;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(38, 269);
+            this.label5.Location = new System.Drawing.Point(51, 325);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(245, 35);
+            this.label5.Size = new System.Drawing.Size(310, 45);
             this.label5.TabIndex = 12;
             this.label5.Text = "Backseat Drawing";
             // 
             // bunifuCustomLabel1
             // 
             this.bunifuCustomLabel1.AutoSize = true;
-            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bunifuCustomLabel1.Location = new System.Drawing.Point(397, 30);
+            this.bunifuCustomLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.bunifuCustomLabel1.Location = new System.Drawing.Point(595, 72);
+            this.bunifuCustomLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.bunifuCustomLabel1.Name = "bunifuCustomLabel1";
-            this.bunifuCustomLabel1.Size = new System.Drawing.Size(131, 37);
+            this.bunifuCustomLabel1.Size = new System.Drawing.Size(81, 25);
             this.bunifuCustomLabel1.TabIndex = 0;
             this.bunifuCustomLabel1.Text = "Login In";
             // 
@@ -149,9 +159,10 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(340, 109);
+            this.label1.Location = new System.Drawing.Point(453, 137);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 20);
+            this.label1.Size = new System.Drawing.Size(93, 25);
             this.label1.TabIndex = 1;
             this.label1.Text = "Server IP";
             // 
@@ -159,30 +170,33 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(326, 172);
+            this.label2.Location = new System.Drawing.Point(435, 216);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(88, 20);
+            this.label2.Size = new System.Drawing.Size(110, 25);
             this.label2.TabIndex = 2;
             this.label2.Text = "Server Port";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(324, 234);
+            this.label3.Font = new System.Drawing.Font("微軟正黑體", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.label3.Location = new System.Drawing.Point(454, 300);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 20);
+            this.label3.Size = new System.Drawing.Size(92, 25);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Player Name ";
+            this.label3.Text = "玩家名稱";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.AppWorkspace;
-            this.label4.Location = new System.Drawing.Point(452, 353);
+            this.label4.Location = new System.Drawing.Point(603, 420);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(23, 13);
+            this.label4.Size = new System.Drawing.Size(29, 17);
             this.label4.TabIndex = 10;
             this.label4.Text = "OR";
             // 
@@ -192,9 +206,10 @@
             this.Cls_btu.FlatAppearance.BorderSize = 0;
             this.Cls_btu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cls_btu.Image = global::GameMSN.Properties.Resources.delete_32;
-            this.Cls_btu.Location = new System.Drawing.Point(594, 0);
+            this.Cls_btu.Location = new System.Drawing.Point(792, 0);
+            this.Cls_btu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Cls_btu.Name = "Cls_btu";
-            this.Cls_btu.Size = new System.Drawing.Size(27, 26);
+            this.Cls_btu.Size = new System.Drawing.Size(36, 32);
             this.Cls_btu.TabIndex = 11;
             this.Cls_btu.UseVisualStyleBackColor = false;
             this.Cls_btu.Click += new System.EventHandler(this.Cls_btu_Click);
@@ -225,7 +240,8 @@
             this.Create_btu.IdleIconLeftImage = null;
             this.Create_btu.IdleIconRightImage = null;
             this.Create_btu.IndicateFocus = true;
-            this.Create_btu.Location = new System.Drawing.Point(408, 372);
+            this.Create_btu.Location = new System.Drawing.Point(544, 444);
+            this.Create_btu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Create_btu.Name = "Create_btu";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties1.BorderRadius = 1;
@@ -243,9 +259,9 @@
             stateProperties2.IconLeftImage = null;
             stateProperties2.IconRightImage = null;
             this.Create_btu.OnPressedState = stateProperties2;
-            this.Create_btu.Size = new System.Drawing.Size(122, 36);
+            this.Create_btu.Size = new System.Drawing.Size(163, 45);
             this.Create_btu.TabIndex = 9;
-            this.Create_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Create_btu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Create_btu.TextMarginLeft = 0;
             this.Create_btu.Click += new System.EventHandler(this.Create_btu_Click);
             // 
@@ -275,7 +291,8 @@
             this.Login_btu.IdleIconLeftImage = null;
             this.Login_btu.IdleIconRightImage = null;
             this.Login_btu.IndicateFocus = true;
-            this.Login_btu.Location = new System.Drawing.Point(406, 314);
+            this.Login_btu.Location = new System.Drawing.Point(541, 371);
+            this.Login_btu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Login_btu.Name = "Login_btu";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.BorderRadius = 1;
@@ -293,7 +310,7 @@
             stateProperties4.IconLeftImage = null;
             stateProperties4.IconRightImage = null;
             this.Login_btu.OnPressedState = stateProperties4;
-            this.Login_btu.Size = new System.Drawing.Size(122, 36);
+            this.Login_btu.Size = new System.Drawing.Size(163, 45);
             this.Login_btu.TabIndex = 7;
             this.Login_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.Login_btu.TextMarginLeft = 0;
@@ -301,35 +318,93 @@
             // 
             // iptxt
             // 
-            this.iptxt.Location = new System.Drawing.Point(444, 108);
-            this.iptxt.Margin = new System.Windows.Forms.Padding(2);
+            this.iptxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.iptxt.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.iptxt.Location = new System.Drawing.Point(579, 133);
+            this.iptxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iptxt.Name = "iptxt";
-            this.iptxt.Size = new System.Drawing.Size(135, 22);
+            this.iptxt.Size = new System.Drawing.Size(179, 22);
             this.iptxt.TabIndex = 12;
             // 
             // porttxt
             // 
-            this.porttxt.Location = new System.Drawing.Point(442, 172);
-            this.porttxt.Margin = new System.Windows.Forms.Padding(2);
+            this.porttxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.porttxt.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F);
+            this.porttxt.Location = new System.Drawing.Point(579, 216);
+            this.porttxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.porttxt.Name = "porttxt";
-            this.porttxt.Size = new System.Drawing.Size(135, 22);
+            this.porttxt.Size = new System.Drawing.Size(179, 22);
             this.porttxt.TabIndex = 13;
             this.porttxt.Text = "2013";
             // 
             // playtxt
             // 
-            this.playtxt.Location = new System.Drawing.Point(442, 234);
-            this.playtxt.Margin = new System.Windows.Forms.Padding(2);
+            this.playtxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.playtxt.Font = new System.Drawing.Font("Microsoft JhengHei UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(136)));
+            this.playtxt.Location = new System.Drawing.Point(579, 293);
+            this.playtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playtxt.Name = "playtxt";
-            this.playtxt.Size = new System.Drawing.Size(135, 22);
+            this.playtxt.Size = new System.Drawing.Size(179, 22);
             this.playtxt.TabIndex = 14;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel1.Location = new System.Drawing.Point(568, 160);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(200, 2);
+            this.panel1.TabIndex = 15;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel2.Location = new System.Drawing.Point(568, 246);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(200, 2);
+            this.panel2.TabIndex = 16;
+            // 
+            // panel3
+            // 
+            this.panel3.BackColor = System.Drawing.Color.DodgerBlue;
+            this.panel3.Location = new System.Drawing.Point(568, 323);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(200, 2);
+            this.panel3.TabIndex = 17;
+            // 
+            // bunifuCustomLabel2
+            // 
+            this.bunifuCustomLabel2.AutoSize = true;
+            this.bunifuCustomLabel2.Font = new System.Drawing.Font("微軟正黑體", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bunifuCustomLabel2.Location = new System.Drawing.Point(580, 17);
+            this.bunifuCustomLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.bunifuCustomLabel2.Name = "bunifuCustomLabel2";
+            this.bunifuCustomLabel2.Size = new System.Drawing.Size(112, 50);
+            this.bunifuCustomLabel2.TabIndex = 18;
+            this.bunifuCustomLabel2.Text = "登 入";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(131, 279);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(156, 45);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "你畫我猜";
             // 
             // fLogin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(623, 423);
+            this.ClientSize = new System.Drawing.Size(831, 507);
+            this.Controls.Add(this.bunifuCustomLabel2);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.playtxt);
             this.Controls.Add(this.porttxt);
             this.Controls.Add(this.iptxt);
@@ -344,6 +419,8 @@
             this.Controls.Add(this.bunifuCustomLabel1);
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
@@ -371,6 +448,11 @@
         private System.Windows.Forms.TextBox playtxt;
         private System.Windows.Forms.TextBox porttxt;
         private System.Windows.Forms.TextBox iptxt;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel panel2;
+        private Bunifu.Framework.UI.BunifuCustomLabel bunifuCustomLabel2;
+        private System.Windows.Forms.Label label6;
     }
 }
 

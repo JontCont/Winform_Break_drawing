@@ -10,18 +10,22 @@ using System.Windows.Forms;
 using System.Net;//匯入網路通訊協定相關函數
 using System.Net.Sockets;//匯入網路插座功能函數
 using System.Threading;//匯入多執行緒功能函數
-using Microsoft.VisualBasic;
 using Microsoft.VisualBasic.PowerPacks;
-using Microsoft.VisualBasic.ApplicationServices;
+
 
 namespace GameMSN
 {
-
     public partial class fDraw : Form
     {
         public fDraw()
         {
             InitializeComponent();
+            CreateShapes();
+            _lastCustomColors = new int[]  //color plate
+            {   ColorToInt(Color.Red),
+                ColorToInt(Color.Blue),
+                ColorToInt(Color.Gray)
+            };
         }
         #region 繼承Net資料
         private string _Dip;
@@ -34,11 +38,11 @@ namespace GameMSN
         Thread Th;
         #endregion
         #region 繪畫功能
-        private ShapeContainer C, D;
-        Point stP;
-        string p;
-        private int LineWidth = 1;
-        private string Shape = "L";
+        ShapeContainer C, D;
+        Point stP;//繪圖起點
+        string p;//筆畫座標字串
+        int LineWidth = 1;//線粗細
+        string Shape = "L";//形狀
         readonly string[] ZZ = new string[3]; // for color plate RGB bands
         private int[] _lastCustomColors = new int[16]; //color plate
 
@@ -50,8 +54,8 @@ namespace GameMSN
         {
             C = new ShapeContainer();//建立畫布(本機繪圖用)
             D = new ShapeContainer();//建立畫布(本機繪圖用)
-            Draw_panel1.Controls.Add(D);
             Draw_panel1.Controls.Add(C);
+            Draw_panel1.Enabled = false;//遊戲未開始
             for (int i = 0; i < ZZ.Length; i++) ZZ[i] = "0";
         }
 
@@ -66,45 +70,41 @@ namespace GameMSN
                 R[i].X = int.Parse(K[0]);//定義第i點X座標
                 R[i].Y = int.Parse(K[1]);//定義第i點Y座標
             }
+            p = Shape + "|" + LineWidth + "-" + ZZ[0] + "*" + ZZ[1] + "*" + ZZ[2] + "_" + p;
+            Send("P" + p);
             switch (Shape)
             {
                 case "R":
-                    RectangleShape Rect = new RectangleShape
+                    _ = new RectangleShape
                     {
-                        Left = R[0].X,//線段起點
+                        Left = R[0].X,
                         Top = R[0].Y,
-                        Width = R[tmpe1.Length - 1].X - R[0].X,//線段終點
+                        Width = R[tmpe1.Length - 1].X - R[0].X,
                         Height = R[tmpe1.Length - 1].Y - R[0].Y,
                         BorderWidth = LineWidth,
-                        BorderColor = pictureBox1.BackColor//設定畫筆顏色
-                    };//建立線段物件
-                    Rect.Parent = C;
-                    p = Shape + "|" + LineWidth + "-" + ZZ[0] + "*" + ZZ[1] + "*" + ZZ[2] + "_" + p;
+                        BorderColor = pictureBox1.BackColor,
+                        Parent = C
+                    };
                     break;
                 case "O":
-                    OvalShape Oval = new OvalShape
+                    _ = new OvalShape()
                     {
-                        Left = R[0].X,//線段起點
+                        Left = R[0].X,
                         Top = R[0].Y,
-                        Width = R[tmpe1.Length - 1].X - R[0].X,//線段終點
+                        Width = R[tmpe1.Length - 1].X - R[0].X,
                         Height = R[tmpe1.Length - 1].Y - R[0].Y,
                         BorderWidth = LineWidth,
-                        BorderColor = pictureBox1.BackColor//設定畫筆顏色
-                    };//建立線段物件
-                    Oval.Parent = C;
-                    p = Shape + "|" + LineWidth + "-" + ZZ[0] + "*" + ZZ[1] + "*" + ZZ[2] + "_" + p;
-                    break;
-                default:
-                    p = Shape + "|" + LineWidth + "-" + ZZ[0] + "*" + ZZ[1] + "*" + ZZ[2] + "_" + p;
+                        BorderColor = pictureBox1.BackColor,
+                        Parent = C,
+                    };
                     break;
             }
-            Send("P" + p);
         }
         private void Draw_panel1_MouseMove(object sender, MouseEventArgs e)
         {
             if (e.Button == System.Windows.Forms.MouseButtons.Left)
             {
-                if(Shape.Equals("L"))
+                if (Shape.Equals("L"))
                 {
                     LineShape L = new LineShape
                     {
@@ -154,6 +154,7 @@ namespace GameMSN
                         R[Q.Length - 1].Y = int.Parse(K[1]);//定義第i點Y座標
                     }
                 }
+
                 int r = Convert.ToInt32(Z1[0]);
                 int g = Convert.ToInt32(Z1[1]);
                 int b = Convert.ToInt32(Z1[2]);
@@ -224,7 +225,6 @@ namespace GameMSN
         private void Cls_btu_Click(object sender, EventArgs e)
         {
             C.Shapes.Clear();
-            D.Shapes.Clear();
             Send("C");
         } //cls
         private void Cls_btu_MouseHover(object sender, EventArgs e)
@@ -269,11 +269,11 @@ namespace GameMSN
                 if (Ans.Equals(textBox3.Text)) Send("D" + " 系統 : 禁止傳解答!!");
                 else  Send("D" + Netname + "：" + textBox3.Text);
             }
-            else
-            {
-                Send("3" + "來自" + Netname + ": " + textBox3.Text + "|" + listBox1.SelectedItem);
-                textBox1.Text += "私密" + listBox1.SelectedItem + "： " + textBox3.Text + "\r\n";
-            }
+           // else
+           // {
+           //       Send("3" + "來自" + Netname + ": " + textBox3.Text + "|" + listBox1.SelectedItem);
+           //      textBox1.Text += "私密" + listBox1.SelectedItem + "： " + textBox3.Text + "\r\n";
+           // }
             textBox3.Text = ""; //清除發言框
         }
         private void TextBox3_KeyDown(object sender, KeyEventArgs e)
@@ -295,6 +295,8 @@ namespace GameMSN
                     user_scro += this.progressBar1.Value / 10;
                     Send("M" + Netname + ": Hit");
                     Send("S" + Netname + ":" + user_scro +"分");
+                    textBox4.Enabled = false;
+                    Guess_btu.Enabled = false;
                 }
                 else Send("M" + Netname + ":" + textBox4.Text);
             }
@@ -313,14 +315,8 @@ namespace GameMSN
         private void FDraw_Load(object sender, EventArgs e)
         {
             Form.CheckForIllegalCrossThreadCalls = false;
-
             Connect(Netip, Netport, Netname);
-            CreateShapes();
-            _lastCustomColors = new int[]  //color plate
-            {   ColorToInt(Color.Red),
-                ColorToInt(Color.Blue),
-                ColorToInt(Color.Gray)
-            };
+            Skip_btu.Visible = false;
             label4.Text = Netname;
         }
         private void Exit_btu_Click(object sender, EventArgs e)
@@ -340,18 +336,27 @@ namespace GameMSN
             }
             catch { }
         }
-        private void Connect(string IP, string Port, string Name)
+        private void Send(string Str)
         {
             try
             {
-                Control.CheckForIllegalCrossThreadCalls = false; //忽略跨執行緒操作的錯誤
+                byte[] B = Encoding.Default.GetBytes(Str); //翻譯文字成Byte陣列
+                if (T != null) T.Send(B, 0, B.Length, SocketFlags.None); //傳送訊息給伺服器
+            }
+            catch { }
+        }
+        private void Connect(string IP, string Port, string Name)
+        {
+            Control.CheckForIllegalCrossThreadCalls = false; //忽略跨執行緒操作的錯誤
+            try
+            {
                 IPEndPoint EP = new IPEndPoint(IPAddress.Parse(IP), int.Parse(Port));//建立伺服器端點資訊
                 T = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 T.Connect(EP);
                 Th = new Thread(Listen) { IsBackground = true };
-                Send("L" + Name);
-                Th.Start();
+                Th.Start();//開始監聽
                 textBox1.AppendText("(系統) : 已連線伺服器！ \r\n");
+                Send("L" + Name);
             }
             catch 
             {
@@ -366,19 +371,10 @@ namespace GameMSN
                 this.Close();
             }
         }
-        private void Send(string Str)
-        {
-            try
-            {
-                byte[] B = Encoding.Default.GetBytes(Str); //翻譯文字成Byte陣列
-                if (T != null) T.Send(B, 0, B.Length, SocketFlags.None); //傳送訊息給伺服器
-            }
-            catch { }
-        }
         private void Listen()
         {
             EndPoint ServerEP = (EndPoint)T.RemoteEndPoint;
-            byte[] B = new byte[1023];
+            byte[] B = new byte[2048];
             int inLen = 0; //接收的位元組數目
             while (true)
             {
@@ -391,6 +387,7 @@ namespace GameMSN
                     T.Close();
                     listBox1.Items.Clear();//清除線上名單
                     MessageBox.Show("伺服器斷線了！", "注意", MessageBoxButtons.OK, MessageBoxIcon.Information);//顯示斷線
+                    Exit_btu_Click(this,new EventArgs());
                     Th.Abort();//刪除執行緒
                 }
                 Recetor(B, inLen);
@@ -404,30 +401,56 @@ namespace GameMSN
             switch (St)//依命令碼執行功能
             {
                 case "L"://接收線上名單
-                    listBox1.Items.Clear(); Player.Clear();//清除名單
+                    listBox1.Items.Clear(); 
+                    Player.Clear();//清除名單
                     string[] M = Str.Split(','); //拆解名單成陣列
                     for (int i = 0; i < M.Length; i++) 
                     {
                         Player.Add(M[i]);
-                        listBox1.Items.Add(M[i]+":  "+user_scro+"分"); 
+                        listBox1.Items.Add(M[i]+":"+user_scro+"分"); 
                     } //逐一加入名單
                     break;  
                 case "9": //接收離開玩家
                     textBox1.AppendText("(系統) :"+Str+" 已離開伺服器！ \r\n");
                     Player.Remove(Str);
                     listBox1.Items.Remove(Str);
+                    if (Player.Count == 1)
+                    {
+                        Start_btu.Show();
+                        this.timer1.Stop();
+                        progressBar1.Value = 100;
+                        user_scro = 0;
+                    }
                     break;
                 case "3": textBox1.AppendText("(私密)" + Str + "\r\n"); break;//私密訊息
-                case "C":D.Shapes.Clear();break;
-                case "P":PointShape(Str); break;
-                case "A":Ans = Str; break;
-                case "G":
-                    Draw_plays = Str;
-                    textBox1.AppendText("(系統) :"+Str+" Draw"); 
+                case "C": D.Shapes.Clear(); break;
+                case "P": PointShape(Str); break;
+                case "A": Ans = Str; break;
+                case "G": //Draw 資訊 
+                    p_num = int.Parse(Str);
+                    Draw_plays = Player[p_num];
+                    textBox1.AppendText("(系統) :"+ Draw_plays + " Draw \r\n");
+                    if (Draw_plays != Netname) OtherPanel();
+                    p_num++;
+                    if (Player.Count - 1 < p_num) p_num = 0;
                     break;
                 case "D": textBox1.AppendText("(公開)" + Str + "\r\n"); break;//聊天室
                 case "M": textBox2.AppendText(Str + "\r\n"); break; //猜題未答對
-                case "R": Start_btu.Show(); break; //建立開始遊戲
+                case "T": 
+                    if(progressBar1.Value > 0)
+                        progressBar1.Value--;
+                    if (Str != "")
+                    {
+                        progressBar1.Value =100;
+                        if (p_num > Player.Count - 1) p_num = 0;
+                        if (Player[p_num] == Netname) Gm_btu.Enabled = true;
+                        else OtherPanel();
+                        C.Shapes.Clear();
+                        Draw_panel1.Controls.Clear();
+                        Count = 0;
+                        Game();
+                    }
+                    break;
                 case "S":
                     Count++;
                     listBox1.Items.Add(Str);
@@ -440,50 +463,45 @@ namespace GameMSN
                     break;
             }
         } //接收ServerC回傳
-        private int RandomNum() 
-        {
-            int temp = 0;
-            Random crandom = new Random();
-            for (int i = 0; i < card.Length; i++)
-            {
-                temp = crandom.Next(0, card.Length);
-            }
-            return temp;
-        }
+
+        int p_num = 0,Count=0, user_scro=0 ;
+        string Ans="", Draw_plays="";//答案
+        readonly List<string> Player= new List<string>();
 
         private void Game() //確認 時間到0或是分數到頂
         {
-            if (this.progressBar1.Value == 0)
-            {
-                timer1.Stop();
-                if (Player[p_num] != Netname) Oth_btu.Enabled = true;
-                else Gm_btu.Enabled = true;
-                C.Shapes.Clear();
-                Draw_panel1.Controls.Clear();
-                Count = 0; //猜的人數歸零
-            }
             if (user_scro >= 100)
             {
                 timer1.Stop();
                 string[] win_play = textBox3.Text.Split(':');
-                Send("R");
                 Send("M" + "(系統)" + win_play[0] + ":(WINER) Done");
+                Start_btu.Show();
+            }
+            if (this.progressBar1.Value == 0)
+            {
+                Send("T" + 100);
+                timer1.Stop();
+                if (Player[p_num] != Netname) OtherPanel();
+                else Gm_btu.Enabled = true;
+                C.Shapes.Clear();
+                D.Shapes.Clear();
+                Draw_panel1.Controls.Clear();
+                Count = 0; //猜的人數歸零
             }
         }
-
         private void Timer1_Tick(object sender, EventArgs e)
         {
             timer1.Interval = 1000;
             if (progressBar1.Value > 0)
             {
-                progressBar1.Value--;
+                Send("T");
                 if (Player.Count-1 == Count) //猜題者全隊
                 {
-                    //Game();
                     timer1.Stop();
-                    progressBar1.Value = 100;
+                    Send("T"+100);
+                    if (p_num > Player.Count - 1) p_num = 0;
                     if (Player[p_num] == Netname) Gm_btu.Enabled = true;
-                    else Oth_btu.Enabled = true;
+                    else OtherPanel();
                     C.Shapes.Clear();
                     Draw_panel1.Controls.Clear();
                     Count = 0;
@@ -491,58 +509,72 @@ namespace GameMSN
             }
             else Game();
         }
-        #region 名單
-        readonly string[] card ={
-            "牛奶","咖啡","黑咖啡","茶","紅茶","綠茶","冰紅茶","青草茶","烏龍茶","擂茶","珍珠奶茶"
-            ,"檸檬汁","甘蔗汁","酸梅汁","楊桃汁","椰子","西瓜","蓮霧","香蕉","葡萄","木瓜","鳳梨"
-            ,"水梨","榴槤","草莓","蘋果","奇異果","荔枝","龍眼","火龍果","橘子","哈密瓜","櫻桃","芭樂"
-            ,"水蜜桃","檸檬","芒果","香瓜","李子","文旦","包心菜","紫色包心菜","蔥","芹菜","紅蘿蔔"
-            ,"辣椒","黃瓜","蒜頭","小紅蘿蔔","菠菜","空心菜","白木耳","玉米粒","豆芽","蘆筍","山芋"
-            ,"花椰菜","大白菜","薑","大蔥","萵苣","蘑菇","豌豆","馬鈴薯","冬瓜","芋頭","橘子","洋蔥"
-            ,"芥菜","橄欖","金針菇","四季豆","甜菜","茄子","結球菜心","荸薺","白花菜","地瓜","番茄"};
-        int p_num = 0,Count=0, user_scro=0 ;
-        string Ans="", Draw_plays="";//答案
-        List<string> Player= new List<string>();
-        #endregion
+
+        private void Skip_btu_Click(object sender, EventArgs e)
+        {
+            GameSet game = new GameSet();
+            label5.Text = game.RandomNum();
+            Send("A" + label5.Text); //傳送題目
+            Skip_btu.Visible = false;
+        }
+
+        private void Panel2_Click(object sender, EventArgs e)
+        {
+            this.listBox1.SelectedItems.Clear();
+        }
         private void Gm_btu_Click(object sender, EventArgs e)
         {
-            Send("G"+ Player[p_num]);
-            p_num++;
-            if (p_num > Player.Count - 1) p_num = 0;
+            Skip_btu.Visible = true;
+            GameSet game = new GameSet();
+            Send("G"+ p_num);
             Gm_btu.Enabled = false;
             textBox4.Enabled = false;
 
             timer1.Start();
-            label5.Text = card[RandomNum()];
+            label5.Text = game.RandomNum();
             Send("A" + label5.Text); //傳送題目
             Draw_panel1.Enabled = true;
             Draw_panel1.Controls.Clear();
             Draw_panel1.Controls.Add(C);
             listBox1.Items.Clear();
         }
-        private void Oth_btu_Click(object sender, EventArgs e)
-        {
-            p_num++;
-            if (p_num > Player.Count - 1) p_num = 0;
-            Oth_btu.Enabled = false;
-            textBox4.Enabled = true;
 
-            timer1.Start();
+
+        //private void Oth_btu_Click(object sender, EventArgs e)
+        //{
+        //    if (p_num > Player.Count - 1) p_num = 0;
+        //    Oth_btu.Enabled = false;
+        //    Draw_panel1.Enabled = false;
+        //    textBox4.Enabled = true;
+        //    
+        //    timer1.Start();
+        //    D.Shapes.Clear();
+        //    Draw_panel1.Controls.Clear();
+        //    Draw_panel1.Controls.Add(D);
+        //    label5.Text = "";
+        //    listBox1.Items.Clear();
+        //}
+
+        private void OtherPanel() 
+        {
+            textBox4.Enabled = true;
+            Guess_btu.Enabled = true;
+            Draw_panel1.Enabled = false;
             D.Shapes.Clear();
             Draw_panel1.Controls.Clear();
             Draw_panel1.Controls.Add(D);
-            Draw_panel1.Enabled = false;
             label5.Text = "";
-            listBox1.Items.Clear();
+            //listBox1.Items.Clear();
         }
+
         private void Start_btu_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count > 1)
+            if (Player.Count > 1)
             {
                 Start_btu.Hide();
-                Gm_btu.Enabled = Oth_btu.Enabled = false;
+                Gm_btu.Enabled = false;
                 if (Player[p_num] == Netname) Gm_btu.Enabled = true;
-                else Oth_btu.Enabled = true;
+                else OtherPanel();
             }
             else textBox1.AppendText("(系統) : 必須要兩個人以上的玩家 。 \r\n");
         }
