@@ -35,7 +35,6 @@
             Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties stateProperties4 = new Bunifu.UI.WinForms.BunifuButton.BunifuButton.StateProperties();
             this.bunifuFormDock1 = new Bunifu.UI.WinForms.BunifuFormDock();
             this.pLogo = new Bunifu.Framework.UI.BunifuGradientPanel();
-            this.label6 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.bunifuCustomLabel1 = new Bunifu.Framework.UI.BunifuCustomLabel();
@@ -53,6 +52,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.bunifuCustomLabel2 = new Bunifu.Framework.UI.BunifuCustomLabel();
+            this.label6 = new System.Windows.Forms.Label();
             this.pLogo.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -109,24 +109,11 @@
             this.pLogo.GradientTopLeft = System.Drawing.Color.DodgerBlue;
             this.pLogo.GradientTopRight = System.Drawing.Color.DodgerBlue;
             this.pLogo.Location = new System.Drawing.Point(0, 0);
-            this.pLogo.Margin = new System.Windows.Forms.Padding(4);
+            this.pLogo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pLogo.Name = "pLogo";
             this.pLogo.Quality = 10;
             this.pLogo.Size = new System.Drawing.Size(419, 507);
             this.pLogo.TabIndex = 11;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(131, 279);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(156, 45);
-            this.label6.TabIndex = 14;
-            this.label6.Text = "你畫我猜";
             // 
             // button1
             // 
@@ -220,7 +207,7 @@
             this.Cls_btu.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Cls_btu.Image = global::GameMSN.Properties.Resources.delete_32;
             this.Cls_btu.Location = new System.Drawing.Point(792, 0);
-            this.Cls_btu.Margin = new System.Windows.Forms.Padding(4);
+            this.Cls_btu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Cls_btu.Name = "Cls_btu";
             this.Cls_btu.Size = new System.Drawing.Size(36, 32);
             this.Cls_btu.TabIndex = 11;
@@ -254,7 +241,7 @@
             this.Create_btu.IdleIconRightImage = null;
             this.Create_btu.IndicateFocus = true;
             this.Create_btu.Location = new System.Drawing.Point(544, 444);
-            this.Create_btu.Margin = new System.Windows.Forms.Padding(4);
+            this.Create_btu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Create_btu.Name = "Create_btu";
             stateProperties1.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties1.BorderRadius = 1;
@@ -274,7 +261,7 @@
             this.Create_btu.OnPressedState = stateProperties2;
             this.Create_btu.Size = new System.Drawing.Size(163, 45);
             this.Create_btu.TabIndex = 9;
-            this.Create_btu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.Create_btu.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.Create_btu.TextMarginLeft = 0;
             this.Create_btu.Click += new System.EventHandler(this.Create_btu_Click);
             // 
@@ -305,7 +292,7 @@
             this.Login_btu.IdleIconRightImage = null;
             this.Login_btu.IndicateFocus = true;
             this.Login_btu.Location = new System.Drawing.Point(541, 371);
-            this.Login_btu.Margin = new System.Windows.Forms.Padding(4);
+            this.Login_btu.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Login_btu.Name = "Login_btu";
             stateProperties3.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(105)))), ((int)(((byte)(181)))), ((int)(((byte)(255)))));
             stateProperties3.BorderRadius = 1;
@@ -337,7 +324,7 @@
             this.iptxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.iptxt.Name = "iptxt";
             this.iptxt.Size = new System.Drawing.Size(179, 22);
-            this.iptxt.TabIndex = 1;
+            this.iptxt.TabIndex = 12;
             // 
             // porttxt
             // 
@@ -347,7 +334,7 @@
             this.porttxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.porttxt.Name = "porttxt";
             this.porttxt.Size = new System.Drawing.Size(179, 22);
-            this.porttxt.TabIndex = 2;
+            this.porttxt.TabIndex = 13;
             this.porttxt.Text = "2013";
             // 
             // playtxt
@@ -358,8 +345,7 @@
             this.playtxt.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.playtxt.Name = "playtxt";
             this.playtxt.Size = new System.Drawing.Size(179, 22);
-            this.playtxt.TabIndex = 3;
-            this.playtxt.KeyDown += new System.Windows.Forms.KeyEventHandler(this.playtxt_KeyDown);
+            this.playtxt.TabIndex = 14;
             // 
             // panel1
             // 
@@ -396,6 +382,19 @@
             this.bunifuCustomLabel2.TabIndex = 18;
             this.bunifuCustomLabel2.Text = "登 入";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.BackColor = System.Drawing.Color.Transparent;
+            this.label6.Font = new System.Drawing.Font("Microsoft YaHei UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(131, 279);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(156, 45);
+            this.label6.TabIndex = 14;
+            this.label6.Text = "你畫我猜";
+            // 
             // fLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
@@ -421,7 +420,7 @@
             this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "fLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";

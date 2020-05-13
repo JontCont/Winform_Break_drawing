@@ -11,7 +11,7 @@ using System.Net;//匯入網路通訊協定相關函數
 using System.Net.Sockets;//匯入網路插座功能函數
 using System.Threading;//匯入多執行緒功能函數
 using Microsoft.VisualBasic.PowerPacks;
-using System.Security.RightsManagement;
+
 
 namespace GameMSN
 {
@@ -54,8 +54,8 @@ namespace GameMSN
         {
             C = new ShapeContainer();//建立畫布(本機繪圖用)
             D = new ShapeContainer();//建立畫布(本機繪圖用)
-            //Draw_panel1.Controls.Add(C);
-            //Draw_panel1.Enabled = false;//遊戲未開始
+            Draw_panel1.Controls.Add(C);
+            Draw_panel1.Enabled = false;//遊戲未開始
             for (int i = 0; i < ZZ.Length; i++) ZZ[i] = "0";
         }
 
@@ -464,9 +464,9 @@ namespace GameMSN
             }
         } //接收ServerC回傳
 
-        public int p_num = 0,Count=0, user_scro=0 ;
-        string Ans = "", Draw_plays="";//答案
-        public readonly List<string> Player= new List<string>();
+        int p_num = 0,Count=0, user_scro=0 ;
+        string Ans="", Draw_plays="";//答案
+        readonly List<string> Player= new List<string>();
 
         private void Game() //確認 時間到0或是分數到頂
         {
@@ -501,7 +501,10 @@ namespace GameMSN
                     timer1.Stop();
                     Send("T"+100);
                     if (p_num > Player.Count - 1) p_num = 0;
-                    if (Player[p_num] == Netname) Gm_btu.Enabled = true;
+                    if (Player[p_num] == Netname)
+                    {
+                        Gm_btu.Enabled = true;
+                    }
                     else OtherPanel();
                     C.Shapes.Clear();
                     Draw_panel1.Controls.Clear();
@@ -525,12 +528,11 @@ namespace GameMSN
         }
         private void Gm_btu_Click(object sender, EventArgs e)
         {
-            Skip_btu.Visible = true;
             GameSet game = new GameSet();
             Send("G"+ p_num);
             Gm_btu.Enabled = false;
             textBox4.Enabled = false;
-            Gm_btu.Visible = true;
+            Skip_btu.Visible = true;
 
             timer1.Start();
             label5.Text = game.RandomNum();
@@ -557,17 +559,17 @@ namespace GameMSN
         //    listBox1.Items.Clear();
         //}
 
-        public void OtherPanel() 
+        private void OtherPanel() 
         {
             textBox4.Enabled = true;
             Guess_btu.Enabled = true;
-            Gm_btu.Visible = false;
             Draw_panel1.Enabled = false;
-
             D.Shapes.Clear();
             Draw_panel1.Controls.Clear();
             Draw_panel1.Controls.Add(D);
             label5.Text = "";
+
+            Skip_btu.Visible = false;
             //listBox1.Items.Clear();
         }
 

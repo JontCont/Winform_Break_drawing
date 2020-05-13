@@ -60,14 +60,5 @@ namespace GameMSN
                 fdraw.Show();
             }
         }
-
-        private void playtxt_KeyDown(object sender, KeyEventArgs e)
-        {
-            if(e.KeyCode== Keys.Enter)
-            {
-                Login_btu_Click(this, new EventArgs());
-                e.SuppressKeyPress = true;
-            }
-        }
     }
 }
