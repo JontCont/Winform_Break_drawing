@@ -11,7 +11,7 @@ using System.Net;//匯入網路通訊協定相關函數
 using System.Net.Sockets;//匯入網路插座功能函數
 using System.Threading;//匯入多執行緒功能函數
 using Microsoft.VisualBasic.PowerPacks;
-
+using System.Media;
 
 namespace GameMSN
 {
@@ -269,11 +269,13 @@ namespace GameMSN
                 if (Ans.Equals(textBox3.Text)) Send("D" + " 系統 : 禁止傳解答!!");
                 else  Send("D" + Netname + "：" + textBox3.Text);
             }
-           // else
-           // {
-           //       Send("3" + "來自" + Netname + ": " + textBox3.Text + "|" + listBox1.SelectedItem);
-           //      textBox1.Text += "私密" + listBox1.SelectedItem + "： " + textBox3.Text + "\r\n";
-           // }
+            else
+            {
+                string[] str = listBox1.Text.Split(':');
+                
+                Send("3" + "來自" + Netname + ": " + textBox3.Text + "|" + str[0]);
+                textBox1.Text += "私密" + str[0] + "： " + textBox3.Text + "\r\n";
+           }
             textBox3.Text = ""; //清除發言框
         }
         private void TextBox3_KeyDown(object sender, KeyEventArgs e)
@@ -297,6 +299,11 @@ namespace GameMSN
                     Send("S" + Netname + ":" + user_scro +"分");
                     textBox4.Enabled = false;
                     Guess_btu.Enabled = false;
+                    SoundPlayer sound = new SoundPlayer
+                    {
+                        SoundLocation = Application.StartupPath + @"//Ans.wav"
+                    };
+                    sound.Play();
                 }
                 else Send("M" + Netname + ":" + textBox4.Text);
             }
@@ -522,6 +529,11 @@ namespace GameMSN
             Skip_btu.Visible = false;
         }
 
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void Panel2_Click(object sender, EventArgs e)
         {
             this.listBox1.SelectedItems.Clear();
@@ -581,6 +593,11 @@ namespace GameMSN
                 Gm_btu.Enabled = false;
                 if (Player[p_num] == Netname) Gm_btu.Enabled = true;
                 else OtherPanel();
+                SoundPlayer sound = new SoundPlayer
+                {
+                    SoundLocation = Application.StartupPath + @"//Click.wav"
+                };
+                sound.Play();
             }
             else textBox1.AppendText("(系統) : 必須要兩個人以上的玩家 。 \r\n");
         }

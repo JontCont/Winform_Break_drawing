@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
 using System.Threading;
+using System.Media;
 
 namespace GameMSN
 {
@@ -43,6 +44,11 @@ namespace GameMSN
             f_Ser.Show();
             iptxt.Text =f_Ser.Netip;
             porttxt.Text = f_Ser.Netport;
+            SoundPlayer sound = new SoundPlayer
+            {
+                SoundLocation = Application.StartupPath + @"//Click.wav"
+            };
+            sound.Play();
         }
         private void Login_btu_Click(object sender, EventArgs e)
         {
@@ -50,6 +56,11 @@ namespace GameMSN
                 MessageBox.Show("尚未輸入完全 !!", "注意");
             else
             {
+                SoundPlayer sound = new SoundPlayer
+                {
+                    SoundLocation = Application.StartupPath + @"//Click.wav"
+                };
+                sound.Play();
                 fDraw fdraw = new fDraw()
                 {
                     Netip = iptxt.Text,
